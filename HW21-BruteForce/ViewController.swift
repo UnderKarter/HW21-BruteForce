@@ -38,8 +38,16 @@ class ViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func onButBruteForce(_ sender: Any) {
+        prepareForBrute()
+        let brutePassword = passwordGeneration()
+        passwordTextField.text = brutePassword
+        let brute = DispatchWorkItem {
+            self.bruteForce(passwordToUnlock: brutePassword)
+        }
+        queue.async(execute: brute)
     }
     @IBAction func onButChangeColor(_ sender: Any) {
+        isBlack.toggle()
     }
     
     //MARK: - Functions
