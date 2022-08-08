@@ -13,6 +13,7 @@
 		C8AB8A4628A1854E000742D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8AB8A4428A1854E000742D1 /* Main.storyboard */; };
 		C8AB8A4828A1854F000742D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8AB8A4728A1854F000742D1 /* Assets.xcassets */; };
 		C8AB8A4B28A1854F000742D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8AB8A4928A1854F000742D1 /* LaunchScreen.storyboard */; };
+		C8AB8A5328A18FD8000742D1 /* Extension String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AB8A5228A18FD8000742D1 /* Extension String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C8AB8A4728A1854F000742D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8AB8A4A28A1854F000742D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8AB8A4C28A1854F000742D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8AB8A5228A18FD8000742D1 /* Extension String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension String.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				C8AB8A3E28A1854E000742D1 /* AppDelegate.swift */,
 				C8AB8A4028A1854E000742D1 /* SceneDelegate.swift */,
 				C8AB8A4228A1854E000742D1 /* ViewController.swift */,
+				C8AB8A5228A18FD8000742D1 /* Extension String.swift */,
 				C8AB8A4428A1854E000742D1 /* Main.storyboard */,
 				C8AB8A4728A1854F000742D1 /* Assets.xcassets */,
 				C8AB8A4928A1854F000742D1 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8AB8A4328A1854E000742D1 /* ViewController.swift in Sources */,
+				C8AB8A5328A18FD8000742D1 /* Extension String.swift in Sources */,
 				C8AB8A3F28A1854E000742D1 /* AppDelegate.swift in Sources */,
 				C8AB8A4128A1854E000742D1 /* SceneDelegate.swift in Sources */,
 			);
