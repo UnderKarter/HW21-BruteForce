@@ -8,25 +8,27 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     //MARK: - Outlet
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var label: UILabel!
+    
+    @IBOutlet weak var butColor: UIButton!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
-    @IBOutlet weak var changeColorButton: UIButton!
-    @IBOutlet weak var bruteForceButton: UIButton!
+    @IBOutlet weak var butBruteForce: UIButton!
     
     //MARK: - Properties
+    
     lazy var password = ""
     var queue = DispatchQueue(label: "Brute", qos: .userInitiated)
     var isBlack: Bool = false {
         didSet {
-                self.view.backgroundColor = isBlack ? .black : .white
-                self.passwordLabel.textColor = isBlack ? .white : .black
-                self.passwordTextField.textColor = isBlack ? .white : .black
-                self.passwordTextField.backgroundColor = isBlack ? .gray : .white
-                self.passwordTextField.tintColor = isBlack ? .black : .white
-                self.indicator.color = isBlack ? .white : .black
+            view.backgroundColor = isBlack ? .black : .white
+            self.label.textColor = isBlack ? .white : .black
+            self.textField.textColor = isBlack ? .white : .black
+            self.textField.backgroundColor = isBlack ? .gray : .white
+            self.textField.tintColor = isBlack ? .black : .white
+            self.indicator.color = isBlack ? .white : .black
         }
     }
     
@@ -37,26 +39,26 @@ class ViewController: UIViewController {
     }
     
     //MARK: - Actions
+    @IBAction func onButColor(_ sender: Any) {
+        isBlack.toggle()
+    }
     @IBAction func onButBruteForce(_ sender: Any) {
         prepareForBrute()
         let brutePassword = passwordGeneration()
-        passwordTextField.text = brutePassword
+        textField.text = brutePassword
         let brute = DispatchWorkItem {
             self.bruteForce(passwordToUnlock: brutePassword)
         }
         queue.async(execute: brute)
     }
-    @IBAction func onButChangeColor(_ sender: Any) {
-        isBlack.toggle()
-    }
     
     //MARK: - Functions
     func prepareForBrute() {
         password = ""
-        passwordTextField.isSecureTextEntry = true
-        passwordLabel.text = "Ваш пароль"
+        textField.isSecureTextEntry = true
+        label.text = "Ваш пароль"
         indicator.startAnimating()
-        bruteForceButton.isEnabled = false
+        butBruteForce.isEnabled = false
     }
     
     func passwordGeneration () -> String {
@@ -77,6 +79,12 @@ class ViewController: UIViewController {
             print(password)
         }
         
+        DispatchQueue.main.async {
+            self.textField.isSecureTextEntry = false
+            self.label.text = self.textField.text
+            self.indicator.stopAnimating()
+            self.butBruteForce.isEnabled = true
+        }
         print(password)
     }
     
@@ -104,6 +112,4 @@ class ViewController: UIViewController {
         }
         return str
     }
-
 }
-
